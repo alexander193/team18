@@ -93,27 +93,25 @@ export class ContractComponent implements OnInit {
   }
   save() {
     if (this.contract.companySelect == null) {
-      alert("กรุณาเลือกบริษัท");
-    }
-    else if (this.contract.maidSelect == null) {
-      alert("กรุณาเลือกแม่บ้าน");
-    }
-    else if (this.contract.contractTypeSelect == null) {
-      alert("กรุณาเลือกประเภทสัญญา");
-    }
-    else if (this.contract.dateStartInput == null) {
-      alert("กรุณาเลือกวันเริ่มสัญญา");
-    }
-    else {
-      if (this.contract.promotionSelect == '' || this.contract.promotionSelect == null) {
-        this.contract.promotionSelect = "No Promotion";
+      alert('กรุณาเลือกบริษัท');
+    } else if (this.contract.maidSelect == null) {
+      alert('กรุณาเลือกแม่บ้าน');
+    } else if (this.contract.contractTypeSelect == null) {
+      alert('กรุณาเลือกประเภทสัญญา');
+    } else if (this.contract.dateStartInput == null) {
+      alert('กรุณาเลือกวันเริ่มสัญญา');
+    } else {
+      if (this.contract.promotionSelect === '' || this.contract.promotionSelect == null) {
+        this.contract.promotionSelect = 'No Promotion';
       }
       console.log(this.contract);
       this.save_func();
     }
   }
   save_func() {
-    this.httpClient.post('http://localhost:8080/contract/' + this.contract.companySelect + '/' + this.contract.maidSelect + '/' + this.contract.contractTypeSelect + '/' + this.contract.promotionSelect + '/' + this.contract.dateStartInput + '/' + this.contract.cost, this.contract)
+    this.httpClient.post('http://localhost:8080/contract/' + this.contract.companySelect + '/' + this.contract.maidSelect +
+      '/' + this.contract.contractTypeSelect + '/' + this.contract.promotionSelect + '/' + this.contract.dateStartInput + '/' +
+      this.contract.cost, this.contract)
       .subscribe(
         data => {
           console.log('PUT Request is successful', data);
