@@ -23,8 +23,8 @@ public class ContractEntity {
     @Future
     private Date dateStart;
     @NotNull
-    @Min(value = 3)
-    @Max(value = 5)
+    @Min(value = 300)
+    @Max(value = 99999)
     @Positive
     private int cost;
 

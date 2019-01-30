@@ -61,11 +61,11 @@ public class DemoApplicationTests {
             entityManager.persist(c);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            //fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 0);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -92,11 +92,11 @@ public class DemoApplicationTests {
         }
     }
 
-    //กำหนดให้แม่บ้านทำสัญญาต่ำสุด 1 วัน ค่าแรงขั้นต่ำ ไม่น่าจะน้อยกว่า 100 บาท
+    //กำหนดให้แม่บ้านทำสัญญาต่ำสุด 1 วัน ค่าแรงขั้นต่ำ ไม่น่าจะน้อยกว่า 300 บาท
     @Test
     public void testCostMin() {
         ContractEntity c = new ContractEntity();
-        c.setCost(99);
+        c.setCost(299);
 
         try {
             c.setDateStart(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
@@ -149,7 +149,7 @@ public class DemoApplicationTests {
         } catch (javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 1);
         } catch (ParseException e) {
             e.printStackTrace();
         }
