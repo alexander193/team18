@@ -55,6 +55,7 @@ public class DemoApplicationTests {
     public void testSuccess() {
         ContractEntity c = new ContractEntity();
         c.setCost(400);
+        c.setDetail("ทำสัญญาแม่บ้าน");
 
         try {
             c.setDateStart(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
@@ -76,6 +77,7 @@ public class DemoApplicationTests {
     public void testZeroInt() {
         ContractEntity c = new ContractEntity();
         c.setCost(0);
+        c.setDetail("ทำสัญญาแม่บ้าน");
 
         try {
             c.setDateStart(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
@@ -97,6 +99,7 @@ public class DemoApplicationTests {
     public void testCostMin() {
         ContractEntity c = new ContractEntity();
         c.setCost(299);
+        c.setDetail("ทำสัญญาแม่บ้าน");
 
         try {
             c.setDateStart(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
@@ -118,6 +121,7 @@ public class DemoApplicationTests {
     public void testCostMax() {
         ContractEntity c = new ContractEntity();
         c.setCost(100000);
+        c.setDetail("ทำสัญญาแม่บ้าน");
 
         try {
             c.setDateStart(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
@@ -139,9 +143,94 @@ public class DemoApplicationTests {
     public void testDateFutureOnly() {
         ContractEntity c = new ContractEntity();
         c.setCost(500);
+        c.setDetail("ทำสัญญาแม่บ้าน");
 
         try {
             c.setDateStart(formatter5.parse("Thu, Oct 18 2018 00:00:00"));
+            entityManager.persist(c);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testNullDetail() {
+        ContractEntity c = new ContractEntity();
+        c.setCost(400);
+        c.setDetail(null);
+
+        try {
+            c.setDateStart(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
+            entityManager.persist(c);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testMinLengthDetail() {
+        ContractEntity c = new ContractEntity();
+        c.setCost(400);
+        c.setDetail("ทำสัญ");
+
+        try {
+            c.setDateStart(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
+            entityManager.persist(c);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2); //Size เท่ากับ 2 เพราะผิด Pattern ด้วย
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testMaxLengthDetail() {
+        ContractEntity c = new ContractEntity();
+        c.setCost(400);
+        c.setDetail("ทำสัญญากับแม่บ้านเป็นระยะเวลาหนึ่งปีเป็นจำนวนเงินหนึ่งแสนบาท");
+
+        try {
+            c.setDateStart(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
+            entityManager.persist(c);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testPatternDetail() {
+        ContractEntity c = new ContractEntity();
+        c.setCost(400);
+        c.setDetail("ทำสัญากับแม่บ้าน");
+
+        try {
+            c.setDateStart(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
             entityManager.persist(c);
             entityManager.flush();
 

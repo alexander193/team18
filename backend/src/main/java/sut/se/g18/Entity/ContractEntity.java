@@ -27,6 +27,11 @@ public class ContractEntity {
     @Max(value = 99999)
     @Positive
     private int cost;
+    //เพิ่ม datail เพื่อเช็ค Null   Size   Pattern
+    @NotNull
+    @Size(min = 7,max = 30)
+    @Pattern(regexp = "^ทำสัญญา([ก-ู]|[เ-์])+")
+    private String detail;
 
     //Many To One with Promotion
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = PromotionEntity.class)
