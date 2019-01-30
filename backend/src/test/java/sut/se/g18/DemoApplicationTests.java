@@ -71,6 +71,27 @@ public class DemoApplicationTests {
         }
     }
 
+    //ถ้า int มีค่า null จะเซทเป็น 0
+    @Test
+    public void testZeroInt() {
+        ContractEntity c = new ContractEntity();
+        c.setCost(0);
+
+        try {
+            c.setDateStart(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
+            entityManager.persist(c);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
     //กำหนดให้แม่บ้านทำสัญญาต่ำสุด 1 วัน ค่าแรงขั้นต่ำ ไม่น่าจะน้อยกว่า 100 บาท
     @Test
     public void testCostMin() {

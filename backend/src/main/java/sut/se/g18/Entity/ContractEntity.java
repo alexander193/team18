@@ -25,6 +25,7 @@ public class ContractEntity {
     @NotNull
     @Min(value = 3)
     @Max(value = 5)
+    @Positive
     private int cost;
 
     //Many To One with Promotion
