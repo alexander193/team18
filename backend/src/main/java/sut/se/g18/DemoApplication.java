@@ -27,7 +27,8 @@ public class DemoApplication {
                            SexRepository sexRepository, TypepaymentRepository typepaymentRepository,
                            BankRepository bankRepository, CleaningEquipmentRepository cleaningEquipmentRepository,
                            ElectricalEquipmentRepository electricalEquipmentRepository,
-                           PromotionTypeRepository promotionTypeRepository,SkillRepository skillRepository) {
+                           PromotionTypeRepository promotionTypeRepository,SkillRepository skillRepository,
+                           CourseTypeRepository courseTypeRepository) {
         return args -> {
 
 
@@ -46,6 +47,16 @@ public class DemoApplication {
             SkillEntity sk5 = new SkillEntity();
             sk5.setSkillRank("Guru");
             skillRepository.save(sk5);
+
+            CourseTypeEntity ct1 = new CourseTypeEntity();
+            ct1.setCourseType("ดูแลบ้าน");
+            courseTypeRepository.save(ct1);
+            CourseTypeEntity ct2 = new CourseTypeEntity();
+            ct2.setCourseType("งานในครัว");
+            courseTypeRepository.save(ct2);
+            CourseTypeEntity ct3 = new CourseTypeEntity();
+            ct3.setCourseType("ดูแลสวน");
+            courseTypeRepository.save(ct3);
 
             //Insert Country_code
             //NORTH AMERICA
