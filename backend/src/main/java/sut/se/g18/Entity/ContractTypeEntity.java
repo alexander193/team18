@@ -20,19 +20,4 @@ public class ContractTypeEntity {
     private @NonNull Long contractTypeId;
     private  @NonNull String contractType;
 
-    public Long getContractTypeId() {
-        return contractTypeId;
-    }
-
-    public void setContractTypeId(Long contractTypeId) {
-        this.contractTypeId = contractTypeId;
-    }
-
-    public String getContractType() {
-        return contractType;
-    }
-
-    public void setContractType(String contractType) {
-        this.contractType = contractType;
-    }
 }

@@ -21,12 +21,31 @@ public class DemoApplication {
                            MaidSelectRepository maidSelectRepository, PromotionRepository promotionRepository,
                            CustomerRepository customerRepository, AdminAccountRepository adminAccountRepository,
                            ContractTypeRepository contractTypeRepository, PaymentStatusRepository paymentStatusRepository,
-                           MaidStatusRepository maidStatusRepository, MaidRegisterRepository maidRegisterRepository, TitleNameRepository titleNameRepository,
-                           TypeworkingRepository typeworkingRepository, WorkingDateRepositoy workingDateRepositoy,
-                           CountryCodeRepository countryCodeRepository, SexRepository sexRepository, TypepaymentRepository typepaymentRepository, BankRepository bankRepository,
-                           CleaningEquipmentRepository cleaningEquipmentRepository, ElectricalEquipmentRepository electricalEquipmentRepository,
-                           PromotionTypeRepository promotionTypeRepository) {
+                           MaidStatusRepository maidStatusRepository, MaidRegisterRepository maidRegisterRepository,
+                           TitleNameRepository titleNameRepository, TypeworkingRepository typeworkingRepository,
+                           WorkingDateRepositoy workingDateRepositoy, CountryCodeRepository countryCodeRepository,
+                           SexRepository sexRepository, TypepaymentRepository typepaymentRepository,
+                           BankRepository bankRepository, CleaningEquipmentRepository cleaningEquipmentRepository,
+                           ElectricalEquipmentRepository electricalEquipmentRepository,
+                           PromotionTypeRepository promotionTypeRepository,SkillRepository skillRepository) {
         return args -> {
+
+
+            SkillEntity sk1 = new SkillEntity();
+            sk1.setSkillRank("Beginner");
+            skillRepository.save(sk1);
+            SkillEntity sk2 = new SkillEntity();
+            sk2.setSkillRank("Apprentice");
+            skillRepository.save(sk2);
+            SkillEntity sk3 = new SkillEntity();
+            sk3.setSkillRank("Professional");
+            skillRepository.save(sk3);
+            SkillEntity sk4 = new SkillEntity();
+            sk4.setSkillRank("Master");
+            skillRepository.save(sk4);
+            SkillEntity sk5 = new SkillEntity();
+            sk5.setSkillRank("Guru");
+            skillRepository.save(sk5);
 
             //Insert Country_code
             //NORTH AMERICA
