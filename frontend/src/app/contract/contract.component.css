@@ -35,7 +35,6 @@ body{
 }
 .list_menu li.active a{
     background-color: rgba(0, 191, 255, 0.7);
-    transition: all ease-in-out 0.45;
     border-radius: 8px;
     color:white;
 }
@@ -105,13 +104,14 @@ body{
     border-radius: 8px;
     background: rgba(0, 191, 255,0.7);
     color:white;
-
 }
 .main_background{
-    background-image: url("maid3.jpg");
-    background-color: #cccccc;
-    height: 100%; 
-    background-position: top; 
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("maid3.jpg");
+  background-color: #cccccc;
+  height: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+

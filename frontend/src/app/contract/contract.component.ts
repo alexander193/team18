@@ -118,7 +118,7 @@ export class ContractComponent implements OnInit {
   save_func() {
     this.httpClient.post('http://localhost:8080/contract/' + this.contract.companySelect + '/' + this.contract.maidSelect +
       '/' + this.contract.contractTypeSelect + '/' + this.contract.promotionSelect + '/' + this.contract.dateStartInput + '/' +
-      this.contract.cost + '/' + this.contract.detail , this.contract)
+      this.contract.cost + '/' + this.contract.detail, this.contract)
       .subscribe(
         data => {
           console.log('PUT Request is successful', data);

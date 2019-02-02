@@ -17,8 +17,12 @@ import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import sut.se.g18.Entity.CompanyEntity;
 import sut.se.g18.Entity.LearnedEntity;
+import sut.se.g18.Entity.MaidRegisterEntity;
+import sut.se.g18.Repository.CompanyRepository;
 import sut.se.g18.Repository.LearnedRepository;
+import sut.se.g18.Repository.MaidRegisterRepository;
 
 import static org.junit.Assert.*;
 
@@ -31,7 +35,17 @@ public class LearnedTest {
     @Autowired
     private LearnedRepository learnedRepository;
 
+    @Autowired
+    private CompanyRepository companyRepository;
+
+    @Autowired
+    private MaidRegisterRepository maidRegisterRepository;
+
     private Validator validator;
+
+    private CompanyEntity company1;
+
+    private MaidRegisterEntity maid;
 
     private SimpleDateFormat formatter5 = new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
 
@@ -41,13 +55,18 @@ public class LearnedTest {
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
+        company1 = companyRepository.findBycompanyName("พีกาซัส");
     }
 
     @Test
     public void testSuccess() {
         LearnedEntity L = new LearnedEntity();
         L.setDetail("คอร์สเรียนตัดหญ้า");
+        L.setCompany(company1);
         L.setCheckObject(true);
+        System.out.println("\n\n\n\n\n\n\n");
+        System.out.println(company1);
+        System.out.println("\n\n\n\n\n\n\n");
 
         try {
             L.setDateLearned(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
@@ -69,6 +88,7 @@ public class LearnedTest {
     public void testNullDetail() {
         LearnedEntity L = new LearnedEntity();
         L.setDetail(null);
+        L.setCompany(company1);
         L.setCheckObject(true);
 
         try {
@@ -91,6 +111,7 @@ public class LearnedTest {
     public void testMinSizeDetail() {
         LearnedEntity L = new LearnedEntity();
         L.setDetail("คอร์");
+        L.setCompany(company1);
         L.setCheckObject(true);
 
         try {
@@ -114,6 +135,7 @@ public class LearnedTest {
         LearnedEntity L = new LearnedEntity();
         L.setDetail("คอร์สเรียนแต่งหน้า นั่งสมาธิ ดำน้ำ ปลูกปะการัง ทำอาหาร นวดสปา ปลูกป่า ดำนา ดูดิสนีย์ออนไอซ์ แรลลี่ตีกอล์ฟ ล่องเรือ ส่องสัตว์ ช๊อปปิ้ง ดูงิ้ว ดูละครเวที ดูคอนเสิร์ต " +
                 "ดินเนอร์ ทำขนม จัดดอกไม้ เที่ยวตลาดน้ำ เรียนถ่ายรูป ดูกายกรรม ชมเมืองเก่า เข้าสัมมนา ทัวร์ธรรมมะ เรียนเต้นแล้วก็ร้องเพลง");
+        L.setCompany(company1);
         L.setCheckObject(true);
 
         try {
@@ -136,6 +158,7 @@ public class LearnedTest {
     public void testInvalidPatternDetail() {
         LearnedEntity L = new LearnedEntity();
         L.setDetail("คอร์เรียนแต่งหน้า นั่งสมาธิ ดำน้ำ ปลูกปะการัง");
+        L.setCompany(company1);
         L.setCheckObject(true);
 
         try {
@@ -158,6 +181,7 @@ public class LearnedTest {
     public void testInvalidDate() {
         LearnedEntity L = new LearnedEntity();
         L.setDetail("คอร์สเรียนตัดหญ้า");
+        L.setCompany(company1);
         L.setCheckObject(true);
 
         try {
