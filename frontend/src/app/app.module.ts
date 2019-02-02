@@ -11,7 +11,7 @@ import { RegisterService } from './service/register.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatTableModule,
-MatSidenavModule, MatCheckboxModule ,MatDialogModule} from '@angular/material';
+MatSidenavModule, MatCheckboxModule , MatDialogModule} from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -38,6 +38,7 @@ import { SubmitComponent } from './submit/submit.component';
 import { TextComponent } from './text/text.component';
 import { LendService } from './service/lend.service';
 import { RegisterComponent } from './register/register.component';
+import { LearnedComponent } from './learned/learned.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { RegisterComponent } from './register/register.component';
     PaymentComponent,
     SubmitComponent,
     TextComponent,
-    RegisterComponent
+    RegisterComponent,
+    LearnedComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,7 @@ import { RegisterComponent } from './register/register.component';
     MatFormFieldModule,
     MatDialogModule
   ],
-  providers: [AdminService,PromotionService,CustomerService, PaymentService,LendService,RegisterService],
+  providers: [AdminService, PromotionService, CustomerService, PaymentService, LendService, RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

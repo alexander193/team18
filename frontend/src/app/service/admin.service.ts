@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/internal/Observable';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/internal/Observable';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
   public API = '//localhost:8080';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
+  // FOR SPRINT #1
   getAdminAccount(adminUsername): Observable<any> {
     return this.http.get(this.API + '/admin/' + adminUsername);
   }
@@ -35,6 +38,19 @@ export class AdminService {
 
   getContract(): Observable<any> {
     return this.http.get(this.API + '/contract');
+  }
+
+  // FOR SPRINT #2
+  getAllSkillRank(): Observable<any> {
+    return this.http.get(this.API + '/skill');
+  }
+
+  getMaidInCompany(companySelect): Observable<any> {
+    return this.http.get(this.API + '/maidInCompany/' + companySelect);
+  }
+
+  getCourseInCompany(companySelect): Observable<any> {
+    return this.http.get(this.API + '/courseInCompany/' + companySelect);
   }
 
 }
