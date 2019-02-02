@@ -77,8 +77,8 @@ public class LearnedController {
         SkillEntity rank = skillRepository.findBySkillRank(skillRankSelect);
         LearnedEntity newLearn = new LearnedEntity();
         newLearn.setCompany(company);
-        newLearn.setCourse(course);
         newLearn.setMaid(maidName);
+        newLearn.setCourse(course);
         newLearn.setSkill(rank);
         newLearn.setDateLearned(dateInput);
         newLearn.setDetail(detailInput);
