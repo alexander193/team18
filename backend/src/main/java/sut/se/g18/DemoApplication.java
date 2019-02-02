@@ -343,6 +343,8 @@ public class DemoApplication {
             mm5.setCompanyForMaid(com4);
             maidRegisterRepository.save(mm5);
 
+            //==========WHERE TO INSERT LEARNED COURSE==============
+
             MaidSelectEntity m1 = new MaidSelectEntity();
             CustomerEntity customer = customerRepository.findBycustomerName("Pitchayut CheeseJa");
             m1.setCustomer(customer);
