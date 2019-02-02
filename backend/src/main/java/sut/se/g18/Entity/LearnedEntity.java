@@ -1,7 +1,6 @@
 package sut.se.g18.Entity;
 import javax.persistence.*;
-import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 import lombok.*;
 
@@ -22,9 +21,13 @@ public class LearnedEntity {
     @NotNull
     private Long learnedId;
     @FutureOrPresent
-    private Date dateLearend;
+    private Date dateLearned;
     @NotNull
+    @Size(min = 5,max = 50)
+    @Pattern(regexp = "^คอร์ส([ก-ู]|[เ-์]| )+")
     private String detail;
+    @AssertTrue
+    private boolean checkObject;
 
     //Many To One with Company
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = CompanyEntity.class)
