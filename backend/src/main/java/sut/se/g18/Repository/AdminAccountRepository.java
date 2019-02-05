@@ -10,5 +10,5 @@ import sut.se.g18.Entity.AdminAccountEntity;
 @RepositoryRestResource
 @CrossOrigin(origins = "http://localhost:4200")
 public interface AdminAccountRepository extends JpaRepository<AdminAccountEntity, Long> {
-    AdminAccountEntity findByadminUsername(String adminUsername);
+    AdminAccountEntity findByusername(String username);
 }
