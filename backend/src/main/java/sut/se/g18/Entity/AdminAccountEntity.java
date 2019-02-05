@@ -17,8 +17,8 @@ public class AdminAccountEntity {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="admin_seq")
     @Column(name="adminId",unique = true, nullable = false)
     private @NonNull Long adminId;
-    private @NonNull String adminUsername;
-    private @NonNull String adminPassword;
+    private @NonNull String username;
+    private @NonNull String password;
 
     public Long getAdminId() {
         return adminId;
@@ -28,19 +28,19 @@ public class AdminAccountEntity {
         this.adminId = adminId;
     }
 
-    public String getAdminUsername() {
-        return adminUsername;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAdminUsername(String adminUsername) {
-        this.adminUsername = adminUsername;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getAdminPassword() {
-        return adminPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAdminPassword(String adminPassword) {
-        this.adminPassword = adminPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

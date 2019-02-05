@@ -243,8 +243,8 @@ public class DemoApplication {
             });
 
             AdminAccountEntity admin = new AdminAccountEntity();
-            admin.setAdminUsername("1234");
-            admin.setAdminPassword("4321");
+            admin.setUsername("1234");
+            admin.setPassword("4321");
             adminAccountRepository.save(admin);
 
             PaymentStatusEntity s1 = new PaymentStatusEntity();

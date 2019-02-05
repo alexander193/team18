@@ -54,7 +54,7 @@ public class ContractController {
 
     @GetMapping(path ="/admin/{adminUsername}", produces = MediaType.APPLICATION_JSON_VALUE)
     public AdminAccountEntity getAdminAccount(@PathVariable String adminUsername){
-        AdminAccountEntity admin = adminAccountRepository.findByadminUsername(adminUsername);
+        AdminAccountEntity admin = adminAccountRepository.findByusername(adminUsername);
         return admin;
     }
 
