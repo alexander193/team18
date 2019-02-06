@@ -1,9 +1,18 @@
 package sut.se.g18.Entity;
+<<<<<<< HEAD
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import lombok.*;
 
+=======
+
+import lombok.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+>>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
 @Entity
 @Data
 @Getter @Setter

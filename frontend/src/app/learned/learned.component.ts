@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import {Component, OnInit} from '@angular/core';
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
 import {AdminService} from '../service/admin.service';
 import {HttpClient} from '@angular/common/http';
 
@@ -20,9 +24,13 @@ export class LearnedComponent implements OnInit {
     dateInput: null,
     detailInput: null
   };
+<<<<<<< HEAD
 
   constructor(private adminService: AdminService, private httpClient: HttpClient) {
   }
+=======
+  constructor(private adminService: AdminService, private httpClient: HttpClient) { }
+>>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
 
   ngOnInit() {
     this.adminService.getCompany().subscribe(data => {
@@ -82,4 +90,8 @@ export class LearnedComponent implements OnInit {
   }
   reset_func() {
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
 }

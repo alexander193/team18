@@ -1,9 +1,17 @@
 package sut.se.g18.Entity;
+<<<<<<< HEAD
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import lombok.*;
 
+=======
+
+import lombok.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+>>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
 import java.util.Date;
 
 @Entity
@@ -21,6 +29,10 @@ public class LearnedEntity {
     @NotNull
     private Long learnedId;
     @FutureOrPresent
+<<<<<<< HEAD
+=======
+    @Column(unique = true)
+>>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
     private Date dateLearned;
     @NotNull
     @Size(min = 5,max = 50)

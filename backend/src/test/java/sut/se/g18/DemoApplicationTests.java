@@ -25,7 +25,10 @@ import sut.se.g18.Repository.ContractRepository;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
+<<<<<<< HEAD
 @DataJpaTest
+=======
+>>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
 public class DemoApplicationTests {
 
 
