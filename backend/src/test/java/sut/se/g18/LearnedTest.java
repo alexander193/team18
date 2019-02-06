@@ -1,5 +1,4 @@
 package sut.se.g18;
-<<<<<<< HEAD
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -7,24 +6,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Set;
-=======
-
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.test.context.junit4.SpringRunner;
-import sut.se.g18.Entity.*;
-import sut.se.g18.Repository.*;
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-<<<<<<< HEAD
 
 import org.junit.Before;
 
@@ -35,14 +21,6 @@ import sut.se.g18.Entity.*;
 import sut.se.g18.Repository.*;
 
 import static org.junit.Assert.*;
-=======
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Set;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -73,11 +51,6 @@ public class LearnedTest {
 
     private CourseEntity course;
 
-<<<<<<< HEAD
-=======
-    private CourseEntity course2;
-
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
     private SkillEntity rank;
 
     private SimpleDateFormat formatter5 = new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
@@ -89,10 +62,6 @@ public class LearnedTest {
         company1 = companyRepository.findBycompanyName("พีกาซัส");
         maid = maidRegisterRepository.findBymaidName("Ping Kasinan");
         course = courseRepository.findByCourseTitle("คอร์สอบรมการตกแต่งกิ่งต้นบอนไซ");
-<<<<<<< HEAD
-=======
-        course2 = courseRepository.findByCourseTitle("คอร์สฝึกสอนทำอาหารอีสาน");
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
         rank = skillRepository.findBySkillRank("Guru");
     }
 
@@ -113,20 +82,10 @@ public class LearnedTest {
 
             //fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In tsetSuccess============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 0);
         } catch (ParseException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In tsetSuccess============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             e.printStackTrace();
         }
     }
@@ -149,20 +108,10 @@ public class LearnedTest {
 
             fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testNullDetail============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         } catch (ParseException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testNullDetail============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             e.printStackTrace();
         }
     }
@@ -185,20 +134,10 @@ public class LearnedTest {
 
             fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testMinSizeDetail============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 2); //ผิด Pattern ด้วย
         } catch (ParseException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testMinSizeDetail============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             e.printStackTrace();
         }
     }
@@ -222,20 +161,10 @@ public class LearnedTest {
 
             fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testMaxSizeDetail============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         } catch (ParseException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testMaxSizeDetail============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             e.printStackTrace();
         }
     }
@@ -258,20 +187,10 @@ public class LearnedTest {
 
             fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testInvalidPatternDetail============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         } catch (ParseException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testInvalidPatternDetail============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             e.printStackTrace();
         }
     }
@@ -294,28 +213,14 @@ public class LearnedTest {
 
             fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testInvalidDate============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         } catch (ParseException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testInvalidDate============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             e.printStackTrace();
         }
     }
 
-<<<<<<< HEAD
-=======
-    // TEST RE INSERT SAME OBJECT (MAID AND COURSE)
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
     @Test
     public void testReInsertObject() {
         LearnedEntity L = new LearnedEntity();
@@ -326,17 +231,9 @@ public class LearnedTest {
         L.setSkill(rank);
         L.setCheckObject(true);
         try {
-<<<<<<< HEAD
             L.setDateLearned(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
 
         } catch (ParseException e) {
-=======
-            L.setDateLearned(formatter5.parse("Fri, Oct 18 2019 00:00:00"));
-
-        } catch (ParseException e) {
-            System.out.println("===========In testReInsertObject============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             e.printStackTrace();
         }
         entityManager.persist(L);
@@ -353,86 +250,17 @@ public class LearnedTest {
         }
 
         try {
-<<<<<<< HEAD
             L2.setDateLearned(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
-=======
-            L2.setDateLearned(formatter5.parse("Sat, Oct 19 2019 00:00:00"));
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             entityManager.persist(L2);
             entityManager.flush();
 
             fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
-<<<<<<< HEAD
-=======
-            System.out.println("===========In testReInsertObject============");
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         } catch (ParseException e) {
-<<<<<<< HEAD
             e.printStackTrace();
-=======
-            System.out.println("===========In testReInsertObject============");
-            System.out.println(e);
-            e.printStackTrace();
-        }
-    }
-
-    // TEST LEARN 2 OR MORE COURSES IN 1 DAY
-    @Test
-    public void testDate() {
-        LearnedEntity L = new LearnedEntity();
-        L.setDetail("คอร์สเรียนตัดหญ้า");
-        L.setCompany(company1);
-        L.setMaid(maid);
-        L.setCourse(course);
-        L.setSkill(rank);
-        L.setCheckObject(true);
-        try {
-            L.setDateLearned(formatter5.parse("Fri, Oct 18 2019 00:00:00"));
-
-        } catch (ParseException e) {
-            System.out.println("===========In testDate============");
-            System.out.println(e);
-            e.printStackTrace();
-        }
-        entityManager.persist(L);
-        entityManager.flush();
-
-        LearnedEntity L2 = new LearnedEntity();
-        L2.setDetail("คอร์สเรียนตัดหญ้า");
-        L2.setCompany(company1);
-        L2.setMaid(maid);
-        L2.setCourse(course2);
-        L2.setSkill(rank);
-        if(learnedRepository.findBycourseAndMaid(course2, maid) == null){
-            L2.setCheckObject(true);
-        }
-
-        try {
-            L2.setDateLearned(formatter5.parse("Fri, Oct 18 2019 00:00:00"));
-            entityManager.persist(L2);
-            entityManager.flush();
-
-            fail("Should not pass to this line");
-        } catch (javax.validation.ConstraintViolationException e) {
-            System.out.println("===========In testDate============");
-            System.out.println(e);
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-        } catch (ParseException e) {
-            System.out.println("===========In testDate============");
-            System.out.println(e);
-            e.printStackTrace();
-        } catch (javax.persistence.PersistenceException e){
-            System.out.println("===========In testDate============");
-            e.printStackTrace();
-            System.out.println(e);
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
         }
     }
 }

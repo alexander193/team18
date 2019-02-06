@@ -15,9 +15,6 @@ public interface ContractRepository extends JpaRepository<ContractEntity, Long> 
     Collection<ContractEntity> findByCustomerAndStatus(CustomerEntity Customer, PaymentStatusEntity Status);
 
     ContractEntity findBycontractId(Long contractId);
-<<<<<<< HEAD
 
 
-=======
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
 }

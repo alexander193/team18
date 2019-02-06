@@ -18,12 +18,7 @@ public class ContractEntity {
     @SequenceGenerator(name="contract_seq",sequenceName="contract_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="contract_seq")
     @Column(name="contractId",unique = true, nullable = false)
-<<<<<<< HEAD
     @NotNull private Long contractId;
-=======
-    @NotNull
-    private Long contractId;
->>>>>>> fd9923720b60c030c03fc926827f4e0a2596b096
     @NotNull
     @Future
     private Date dateStart;
